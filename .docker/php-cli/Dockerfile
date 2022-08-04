@@ -11,6 +11,6 @@ RUN apt-get update -yqq \
     && curl -sS https://getcomposer.org/installer | php -- \
          --install-dir=/usr/local/bin --filename=composer
 
-WORKDIR /var/www/wisebits
+WORKDIR /var/www/wise
 COPY . .
-CMD bash -c "composer install --no-progress --no-interaction && /var/www/wisebits/vendor/bin/phpunit"
+CMD bash -c "composer install --no-progress --no-interaction && /var/www/wise/vendor/bin/phpunit"

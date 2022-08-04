@@ -34,9 +34,9 @@ class BaseFunctionalTestCase extends BaseTestCase
         $settings = $this->getSettings();
         return new DatabaseManager(
             new DatabaseConfig([
-                'default' => 'wisebits',
+                'default' => 'wise',
                 'databases' => [
-                    'wisebits' => ['connection' => 'mysql'],
+                    'wise' => ['connection' => 'mysql'],
                 ],
                 'connections' => [
                     'mysql' => [

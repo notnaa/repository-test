@@ -1,7 +1,7 @@
 start: up_db run_tests
 up_db:
 	@echo "Up MySql ..."; \
-	docker-compose up -d wisebits-testing-db
+	docker-compose up -d wise-testing-db
 	sleep 10
 run_tests:
 	@echo "Run unit/functional tests ..."; \
