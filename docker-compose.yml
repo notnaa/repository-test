@@ -1,0 +1,35 @@
+version: '3.7'
+
+networks:
+  internal:
+
+services:
+  wisebits-php-cli:
+    container_name: wisebits-php-cli
+    build:
+      context: .docker/php-cli
+      dockerfile: Dockerfile
+    networks:
+      internal:
+    volumes:
+      - ./:/var/www/wisebits
+    depends_on:
+      - wisebits-testing-db
+  wisebits-testing-db:
+    image: mysql:5.7
+    container_name: wisebits-testing-db
+    cap_add:
+      - SYS_NICE
+    environment:
+      MYSQL_DATABASE: 'wisebits_test'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '33066:3306'
+    volumes:
+      - .docker/db/temp:/var/lib/mysql
+      - .docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      internal:
+volumes:
+  db:
+    driver: local

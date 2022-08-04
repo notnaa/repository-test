@@ -1,0 +1,5 @@
+.env
+vendor
+.docker/db/temp
+.idea
+.phpunit.result.cache
