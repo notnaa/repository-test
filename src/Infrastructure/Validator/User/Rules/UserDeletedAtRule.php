@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Validator\User\Rules;
+namespace App\Infrastructure\Validator\User\Rules;
 
 use App\Domain\Entity\User\UserInterface;
 use Respect\Validation\Rules\AbstractRule;

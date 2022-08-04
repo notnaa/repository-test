@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit\User\Rules;
 
 use App\Domain\Entity\User\User;
-use App\Domain\Validator\User\Rules\UserNameBlackWordsRule;
+use App\Infrastructure\Validator\User\Rules\UserNameBlackWordsRule;
 use DateTime;
 use Tests\BaseTestCase;
 

@@ -14,7 +14,7 @@ use App\Domain\Repository\Exception\GetUserException;
 use App\Domain\Repository\Exception\UpdateUserException;
 use App\Domain\Repository\Exception\UserNotExistsException;
 use App\Domain\Repository\UserRepositoryInterface;
-use App\Domain\Validator\User\UserValidator;
+use App\Infrastructure\Validator\User\UserValidator;
 use DateTime;
 use PHPUnit\Framework\MockObject\MockObject;
 use Tests\BaseTestCase;

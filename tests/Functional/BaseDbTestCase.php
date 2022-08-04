@@ -10,7 +10,7 @@ use Spiral\Database\DatabaseProviderInterface;
 use Spiral\Database\Driver\MySQL\MySQLDriver;
 use Tests\BaseTestCase;
 
-class BaseFunctionalTestCase extends BaseTestCase
+class BaseDbTestCase extends BaseTestCase
 {
     /**
      * @var DatabaseProviderInterface

@@ -13,13 +13,13 @@ use App\Infrastructure\Serializer\UserSerializer;
 use App\Infrastructure\User\MySqlUserRepository;
 use DateTime;
 use Tests\Functional\TestHelper;
-use Tests\Functional\BaseFunctionalTestCase;
+use Tests\Functional\BaseDbTestCase;
 
 /**
  * @group user
  * @group repository
  */
-class MySqlUserRepositoryTest extends BaseFunctionalTestCase
+class MySqlUserRepositoryTest extends BaseDbTestCase
 {
     /**
      * @inheritDoc
@@ -86,6 +86,40 @@ class MySqlUserRepositoryTest extends BaseFunctionalTestCase
         );
         $result = $repository->get($user->getId());
         $this->assertNull($result);
+    }
+
+    /**
+     * @throws AddUserException
+     * @throws GetUserException
+     */
+    public function testGetByName(): void
+    {
+        $repository = $this->getMySqlUserRepository();
+        $expected = new User(
+            'name',
+            'name@gmail.com',
+            new DateTime(),
+        );
+        $user = $repository->add($expected);
+        $result = $repository->getByName($user->getName());
+        $this->assertUser($result, $expected);
+    }
+
+    /**
+     * @throws AddUserException
+     * @throws GetUserException
+     */
+    public function testGetByEmail(): void
+    {
+        $repository = $this->getMySqlUserRepository();
+        $expected = new User(
+            'name',
+            'name@gmail.com',
+            new DateTime(),
+        );
+        $user = $repository->add($expected);
+        $result = $repository->getByEmail($user->getEmail());
+        $this->assertUser($result, $expected);
     }
 
     /**

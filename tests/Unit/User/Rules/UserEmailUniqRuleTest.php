@@ -6,8 +6,7 @@ namespace Tests\Unit\User\Rules;
 
 use App\Domain\Entity\User\User;
 use App\Domain\Repository\UserRepositoryInterface;
-use App\Domain\Validator\User\Rules\UserEmailBlackDomainsRule;
-use App\Domain\Validator\User\Rules\UserEmailUniqRule;
+use App\Infrastructure\Validator\User\Rules\UserEmailUniqRule;
 use DateTime;
 use Tests\BaseTestCase;
 

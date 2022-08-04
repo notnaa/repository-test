@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Validator\User;
+namespace App\Infrastructure\Validator\User;
 
 use App\Domain\Entity\User\UserInterface;
 use App\Domain\Repository\UserRepositoryInterface;
-use App\Domain\Validator\User\Rules\UserDeletedAtRule;
-use App\Domain\Validator\User\Rules\UserEmailUniqRule;
-use App\Domain\Validator\User\Rules\UserEmailBlackDomainsRule;
-use App\Domain\Validator\User\Rules\UserNameUniqRule;
-use App\Domain\Validator\User\Rules\UserNameBlackWordsRule;
+use App\Infrastructure\Validator\User\Rules\UserDeletedAtRule;
+use App\Infrastructure\Validator\User\Rules\UserEmailBlackDomainsRule;
+use App\Infrastructure\Validator\User\Rules\UserEmailUniqRule;
+use App\Infrastructure\Validator\User\Rules\UserNameBlackWordsRule;
+use App\Infrastructure\Validator\User\Rules\UserNameUniqRule;
 use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Factory;
 use Respect\Validation\Validator;
@@ -36,7 +36,7 @@ class UserValidator
     protected function getValidator(): Validator
     {
         Factory::setDefaultInstance(
-            (new Factory())->withRuleNamespace('App\\Domain\\Validator\\User\\Rules')
+            (new Factory())->withRuleNamespace('App\\Infrastructure\\Validator\\User\\Rules')
         );
         $v = Validator::create()
             ->addRule(new UserNameUniqRule($this->userRepository))

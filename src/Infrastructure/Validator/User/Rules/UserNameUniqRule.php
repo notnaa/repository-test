@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Validator\User\Rules;
+namespace App\Infrastructure\Validator\User\Rules;
 
 use App\Domain\Entity\User\UserInterface;
 use App\Domain\Repository\UserRepositoryInterface;
 use Respect\Validation\Rules\AbstractRule;
 
-class UserEmailUniqRule extends AbstractRule
+class UserNameUniqRule extends AbstractRule
 {
     /**
      * @var UserRepositoryInterface
@@ -28,7 +28,7 @@ class UserEmailUniqRule extends AbstractRule
      */
     public function getName(): ?string
     {
-        return 'UserEmailUniqRule';
+        return 'UserNameUniqRule';
     }
 
     /**
@@ -37,7 +37,7 @@ class UserEmailUniqRule extends AbstractRule
     public function validate($input): bool
     {
         /** @var UserInterface $input */
-        $user = $this->repository->getByEmail($input->getEmail());
+        $user = $this->repository->getByName($input->getName());
         return $user === null;
     }
 }

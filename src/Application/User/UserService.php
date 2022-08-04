@@ -8,7 +8,7 @@ use App\Application\User\Exception\UserValidateException;
 use App\Domain\Entity\User\UserInterface;
 use App\Domain\Repository\Exception\UserNotExistsException;
 use App\Domain\Repository\UserRepositoryInterface;
-use App\Domain\Validator\User\UserValidator;
+use App\Infrastructure\Validator\User\UserValidator;
 
 class UserService implements UserServiceInterface
 {
